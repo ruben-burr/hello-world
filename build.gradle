@@ -4,6 +4,7 @@ plugins {
 }
 
 apply plugin: "java"
+apply plugin: "jacoco"
 
 repositories{
 	mavenCentral()
@@ -15,7 +16,10 @@ dependencies {
 
 jacocoTestReport {
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
-        html.enabled = true
+        xml.enabled true // coveralls plugin depends on xml format report
+        csv.enabled true
+        html.enabled true
     }
 }
+
+check.dependsOn jacocoTestReport
