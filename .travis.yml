@@ -6,5 +6,10 @@ env:
 jdk:
 - oraclejdk8
 
+script:
+  - ./mvnw test jacoco:report
 after_success:
-- ./gradlew jacocoTestReport coveralls
+  - ./mvnw coveralls:report
+
+# after_success:
+#- ./gradlew jacocoTestReport coveralls
