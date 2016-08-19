@@ -12,4 +12,4 @@ after_success:
   - ./mvnw coveralls:report
 
 # after_success:
-#- ./gradlew jacocoTestReport coveralls
+#- ./gradlew jacocoTestReport coveralls 
