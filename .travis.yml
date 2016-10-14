@@ -1,15 +1,16 @@
 language: java
-
 env:
-  - TERM=dumb
-  
+- TERM=dumb
 jdk:
 - oraclejdk8
-
 script:
-  - ./mvnw test jacoco:report
+- "./mvnw test jacoco:report"
 after_success:
-  - ./mvnw coveralls:report
-
-# after_success:
-#- ./gradlew jacocoTestReport coveralls 
+- "./mvnw coveralls:report"
+deploy:
+  provider: releases
+  api_key:
+    secure: evF1A9pdDToTBLuZIlEgtDnN5XiaDnqHNnSyGUeL372Uw+xsUnVe25wfbyGipXzehheOlTngVlk7ByZXpOF0kFgllvjYpQHJIgo2bE2mw6LnoxS16VhbsFVLI6bQwo7aAM7EgcrxHhWfXxYzvu/Pcpu2ndWbRLQCPZakzUunLWK0gT0gdC64hD4gmSUi4plBlnSnmBuiwYpAXzTdR2wocjt72OqcjCkPIXJHNXuKyZ7y/rpggGfgz1cL66ns3wHodtgrV0Tt8P85c0xYnkO6ONqgDrgstb7Zzb7x4k6gdkqfp4k3NMirQQ8vaB5/2jxSL+yKzfhTE2Am+S0FF6eE+OtlIK5COgl8WaGI7y9U1/GNBDyjrEaMBWmdFK1QDsdUAUwxtRI42QXKvZ+CwMk1EXVWKui+sWvZQVBMj5pkWRTCshGWCyk9jLVj/BU+J18Hbq/Jb7MX1NeYfiSDzZ9rJHe/qgs98zlhaH1sL13HBCf3q4SC9m75YCxnieGX8kJafw8nT2oui/hxswqlI3TP96Z8Dfa6TyVjDUzCLZxHz8XXiCRQYUlD7h67T2Mg7CTcBhLJutEWzutAe9UPepjgrCf/17wFbIWnZQEPUNdb1qOWw0+4oS6ZHz5Wkob9fICn/c2+SuIt8fgIbqU3QQig8LYkqzu0r0WjENL6jKKfIQg=
+  file: README.md
+  on:
+    repo: ruben-burr/hello-world
